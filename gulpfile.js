@@ -49,7 +49,7 @@ gulp.task("postcss", () => {
         .pipe(plumber())
         .pipe(sass())
         .pipe(postcss([autoprefixer({
-            browsers: ["last 2 versions"],
+            overrideBrowserslist: ["> 0.15% in CN"],
             cascade: true, //是否美化属性值 默认：true 像这样：
             //-webkit-transform: rotate(45deg)
             //        transform: rotate(45deg)
@@ -90,7 +90,7 @@ gulp.task("static", () => {
 // 图片压缩
 gulp.task("image",() => {
     return gulp.src("./src/image/**/*")
-    .pipe(imagemin())
+    // .pipe(imagemin())
     .pipe(gulp.dest(path.join(distRoot,"/image")))
 })
 
